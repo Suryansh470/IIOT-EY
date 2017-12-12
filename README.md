@@ -1,4 +1,4 @@
-# IOT
+# IoT
 
 IoT is further divided in 2 types of IoT
 - Consumer IoT
