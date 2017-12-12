@@ -9,7 +9,7 @@ var Message = require('azure-iot-device').Message;
 
 // String SharedAccessSignature in the following formats:
 //  "SharedAccessSignature sr=<iothub_host_name>/devices/<device_id>&sig=<signature>&se=<expiry>"
-var sas = "[SharedAccessSignature]"; //SAS certification
+var sas = process.argv[2]; //SAS certification
 
 // fromSharedAccessSignature must specify a transport constructor, coming from any transport package.
 var client = Client.fromSharedAccessSignature(sas, Protocol);
