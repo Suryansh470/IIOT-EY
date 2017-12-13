@@ -33,7 +33,7 @@ var connectCallback = function (err) {
                                        //fake data is input here
                                        // vibration here is in number of vibrations per minute
                                        var vibration = Math.floor(60 + (Math.random() * 100)); // range: [60, 160]
-                                       var data = JSON.stringify({ deviceId: 'temperatureSensor', vibration: vibration });
+                                       var data = JSON.stringify({ deviceId: 'vibrationSensor', vibration: vibration });
                                        var message = new Message(data);
                                        //message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
