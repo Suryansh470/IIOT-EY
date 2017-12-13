@@ -33,7 +33,7 @@ var connectCallback = function (err) {
                                        //fake data is input here
                                        // Considering the required current range between [20, 50]
                                        var current = 20 + (Math.random() * 50); // range: [20, 70]
-                                       var data = JSON.stringify({ deviceId: 'temperatureSensor', current: current });
+                                       var data = JSON.stringify({ deviceId: 'currentSensor', current: current });
                                        var message = new Message(data);
                                        //message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
