@@ -30,13 +30,11 @@ var connectCallback = function (err) {
         
         // Create a message and send it to the IoT Hub every second
         var sendInterval = setInterval(function () {
-                                       //fake data is input here removing the windspeed, temperature, and humidity
-                                       var windSpeed = 10 + (Math.random() * 4); // range: [10, 14]
-                                       var temperature = 20 + (Math.random() * 10); // range: [20, 30]
-                                       var humidity = 60 + (Math.random() * 20); // range: [60, 80]
-                                       var data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed, temperature: temperature, humidity: humidity });
+                                       //fake data is input here 
+                                       var temperature = 20 + (Math.random() * 70); // range: [20, 90]
+                                       var data = JSON.stringify({ deviceId: 'temperatureSensor', temperature: temperature });
                                        var message = new Message(data);
-                                       message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
+                                       //message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
                                        client.sendEvent(message, printResultFor('send'));
                                        }, 2000);
