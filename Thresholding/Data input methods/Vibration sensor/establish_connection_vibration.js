@@ -31,7 +31,7 @@ var connectCallback = function (err) {
         // Create a message and send it to the IoT Hub every second
         var sendInterval = setInterval(function () {
                                        //fake data is input here
-                                       // vibration here is in number of vibrations per minute
+                                       // vibration here is in number of vibrations per second
                                        var vibration = Math.floor(60 + (Math.random() * 100)); // range: [60, 160]
                                        var data = JSON.stringify({ deviceId: 'vibrationSensor', vibration: vibration });
                                        var message = new Message(data);
