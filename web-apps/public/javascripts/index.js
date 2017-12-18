@@ -38,11 +38,11 @@ $(document).ready(function () {
         fill: false,
         label: 'Current',
         yAxisID: 'Current',
-        borderColor: "rgba(236, 4, 14, 1)",
-        pointBoarderColor: "rgba(236, 4, 14, 1)",
-        backgroundColor: "rgba(236, 4, 14, 0.4)",
-        pointHoverBackgroundColor: "rgba(236, 4, 14, 1)",
-        pointHoverBorderColor: "rgba(236, 4, 14, 1)",
+        borderColor: "rgba(30, 129, 68, 1)",
+        pointBoarderColor: "rgba(30, 129, 68, 1)",
+        backgroundColor: "rgba(30, 129, 68, 0.4)",
+        pointHoverBackgroundColor: "rgba(30, 129, 168, 1)",
+        pointHoverBorderColor: "rgba(30, 129, 68, 1)",
         data: currentData
       }
     ]
