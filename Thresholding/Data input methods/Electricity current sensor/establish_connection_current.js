@@ -31,11 +31,12 @@ var connectCallback = function (err) {
         // Create a message and send it to the IoT Hub every second
         var sendInterval = setInterval(function () {
                                        //fake data is input here
-                                       // Considering the required current range between [20, 50]
-                                       var current = 20 + (Math.random() * 50); // range: [20, 70]
+                                       // Considering the required current range between [22, 38]
+                                       var current = 30 + ((Math.random() * 16)-8); // range: [22, 38]
                                        var data = JSON.stringify({ deviceId: 'currentSensor', current: current });
                                        var message = new Message(data);
-                                       //message.properties.add('temperatureAlert', (temperature > 28) ? 'true' : 'false');
+                                       message.properties.add('currentAlertUCL', (current > 33) ? 'true' : 'false');
+                                       message.properties.add('currentAlertLCL', (current < 27) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
                                        client.sendEvent(message, printResultFor('send'));
                                        }, 2000);
