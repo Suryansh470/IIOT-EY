@@ -18,7 +18,7 @@ $(document).ready(function () {
         data: temperatureData
       },
       {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 65),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 55),
   		fill: false,
   		label: 'Upper Control Limit',
   		radius: 0,
@@ -96,7 +96,7 @@ $(document).ready(function () {
         data: currentData
       },
       {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 60),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 33),
   		fill: false,
   		label: 'Upper Control Limit',
   		radius: 0,
@@ -107,7 +107,7 @@ $(document).ready(function () {
         pointHoverBorderColor: "rgba(255, 0, 0, 1)",
 	},
     {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 30),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 27),
   		fill: false,
   		label: 'Lower Control Limit',
   		radius: 0,
