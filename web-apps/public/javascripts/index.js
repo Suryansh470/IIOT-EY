@@ -55,7 +55,29 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: vibrationData
-      }
+      },
+      {
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 10),
+  		fill: false,
+  		label: 'Upper Control Limit',
+  		radius: 0,
+  		borderColor: "rgba(255, 0, 0, 1)",
+        pointBoarderColor: "rgba(255, 0, 0, 1)",
+  		backgroundColor: "rgba(255, 0, 0, 0.4)",
+  		pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
+        pointHoverBorderColor: "rgba(255, 0, 0, 1)",
+	},
+    {
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 3),
+  		fill: false,
+  		label: 'Lower Control Limit',
+  		radius: 0,
+  		borderColor: "rgba(255, 140, 0, 1)",
+        pointBoarderColor: "rgba(255, 140, 0, 1)",
+  		backgroundColor: "rgba(255, 140, 0, 0.4)",
+  		pointHoverBackgroundColor: "rgba(255, 140, 0, 1)",
+        pointHoverBorderColor: "rgba(255, 140, 0, 1)",
+	}
     ]
   }
 
