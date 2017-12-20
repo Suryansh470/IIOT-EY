@@ -57,7 +57,7 @@ $(document).ready(function () {
         data: vibrationData
       },
       {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 10),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 12),
   		fill: false,
   		label: 'Upper Control Limit',
   		radius: 0,
@@ -68,7 +68,7 @@ $(document).ready(function () {
         pointHoverBorderColor: "rgba(255, 0, 0, 1)",
 	},
     {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 3),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 7),
   		fill: false,
   		label: 'Lower Control Limit',
   		radius: 0,
