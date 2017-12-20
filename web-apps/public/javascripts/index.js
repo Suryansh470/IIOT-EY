@@ -27,6 +27,17 @@ $(document).ready(function () {
   		backgroundColor: "rgba(255, 0, 0, 0.4)",
   		pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
         pointHoverBorderColor: "rgba(255, 0, 0, 1)",
+	},
+    {
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 20),
+  		fill: false,
+  		label: 'Lower Control Limit',
+  		radius: 0,
+  		borderColor: "rgba(255, 140, 0, 1)",
+        pointBoarderColor: "rgba(255, 140, 0, 1)",
+  		backgroundColor: "rgba(255, 140, 0, 0.4)",
+  		pointHoverBackgroundColor: "rgba(255, 140, 0, 1)",
+        pointHoverBorderColor: "rgba(255, 140, 0, 1)",
 	}
     ]
   }
