@@ -18,7 +18,7 @@ $(document).ready(function () {
         data: temperatureData
       },
       {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 75),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 65),
   		fill: false,
   		label: 'Upper Control Limit',
   		radius: 0,
@@ -29,7 +29,7 @@ $(document).ready(function () {
         pointHoverBorderColor: "rgba(255, 0, 0, 1)",
 	},
     {
-  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 20),
+  		data: Array.apply(null, new Array(10000)).map(Number.prototype.valueOf, 45),
   		fill: false,
   		label: 'Lower Control Limit',
   		radius: 0,
