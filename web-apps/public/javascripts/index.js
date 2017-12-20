@@ -16,7 +16,13 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
         data: temperatureData
-      },
+      }
+    ]
+  }
+
+  var data2 = {
+    labels: timeData,
+    datasets: [
       {
         fill: false,
         label: 'Vibration',
@@ -31,7 +37,7 @@ $(document).ready(function () {
     ]
   }
 
-  var data2 = {
+  var data3 = {
     labels: timeData,
     datasets: [
       {
@@ -47,11 +53,11 @@ $(document).ready(function () {
       }
     ]
   }
-
+  
   var basicOption = {
     title: {
       display: true,
-      text: 'Temperature & Vibration Real-time Data',
+      text: 'Temperature Real-time Data',
       fontSize: 36
     },
     scales: {
@@ -59,23 +65,34 @@ $(document).ready(function () {
         id: 'Temperature',
         type: 'linear',
         scaleLabel: {
-          labelString: 'Temperature(C)',
+          labelString: 'Temperature (C)',
           display: true
         },
         position: 'left',
-      }, {
-          id: 'Vibration',
-          type: 'linear',
-          scaleLabel: {
-            labelString: 'Vibration(n/min)',
-            display: true
-          },
-          position: 'right'
-        }]
+      }]
     }
   }
 
 var basicOption2 = {
+    title: {
+      display: true,
+      text: 'Vibrations Real-time Data',
+      fontSize: 36
+    },
+    scales: {
+      yAxes: [{
+        id: 'Vibration',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'Vibration (no./sec)',
+          display: true
+        },
+        position: 'left',
+      }]
+    }
+  }
+
+var basicOption3 = {
     title: {
       display: true,
       text: 'Current Real-time Data',
@@ -86,7 +103,7 @@ var basicOption2 = {
         id: 'Current',
         type: 'linear',
         scaleLabel: {
-          labelString: 'Current(A)',
+          labelString: 'Current (A)',
           display: true
         },
         position: 'left',
@@ -96,6 +113,7 @@ var basicOption2 = {
   //Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
   var ctx2 = document.getElementById("myChart2").getContext("2d");
+  var ctx3 = document.getElementById("myChart3").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var myLineChart = new Chart(ctx, {
     type: 'line',
@@ -109,6 +127,11 @@ var basicOption2 = {
     options: basicOption2
   });
 
+  var myLineChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: data3,
+    options: basicOption3
+  });
   var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
     console.log('Successfully connect WebSocket');
@@ -139,14 +162,16 @@ var basicOption2 = {
         vibrationData.shift();
       }
 		
-      myLineChart.update();
       if (obj.current) {
       	currentData.push(obj.current);
       }
       if (currentData.length > maxLen) {
       	currentData.shift();
       }
+      
+      myLineChart.update();
       myLineChart2.update();
+      myLineChart3.update();
     } catch (err) {
       console.error(err);
     }
