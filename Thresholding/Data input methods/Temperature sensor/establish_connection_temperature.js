@@ -34,8 +34,7 @@ var connectCallback = function (err) {
                                        var temperature = 50 + ((Math.random() * 30)-15); // range: [35, 65]
                                        var data = JSON.stringify({ deviceId: 'temperatureSensor', temperature: temperature });
                                        var message = new Message(data);
-                                       message.properties.add('temperatureAlertUCL', (temperature > 55) ? 'true' : 'false');
-                                       message.properties.add('temperatureAlertLCL', (temperature < 45) ? 'true' : 'false');
+                                       message.properties.add('temperatureAlert', (temperature > 55 || temperature < 45) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
                                        client.sendEvent(message, printResultFor('send'));
                                        }, 2000);

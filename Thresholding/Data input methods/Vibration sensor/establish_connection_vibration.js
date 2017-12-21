@@ -35,8 +35,7 @@ var connectCallback = function (err) {
                                        var vibration = Math.floor(10 + ((Math.random() * 10)-5)); // range: [5, 15]
                                        var data = JSON.stringify({ deviceId: 'vibrationSensor', vibration: vibration });
                                        var message = new Message(data);
-                                       message.properties.add('vibrationAlertUCL', (vibration > 12) ? 'true' : 'false');
-                                       message.properties.add('vibrationAlertLCL', (vibration < 7) ? 'true' : 'false');
+                                       message.properties.add('vibrationAlert', (vibration > 12 || vibration < 7) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
                                        client.sendEvent(message, printResultFor('send'));
                                        }, 2000);
