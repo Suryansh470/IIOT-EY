@@ -35,8 +35,7 @@ var connectCallback = function (err) {
                                        var current = 30 + ((Math.random() * 16)-8); // range: [22, 38]
                                        var data = JSON.stringify({ deviceId: 'currentSensor', current: current });
                                        var message = new Message(data);
-                                       message.properties.add('currentAlertUCL', (current > 33) ? 'true' : 'false');
-                                       message.properties.add('currentAlertLCL', (current < 27) ? 'true' : 'false');
+                                       message.properties.add('currentAlert', (current > 33 || current < 27) ? 'true' : 'false');
                                        console.log('Sending message: ' + message.getData());
                                        client.sendEvent(message, printResultFor('send'));
                                        }, 2000);
