@@ -1,10 +1,29 @@
+<!DOCTYPE html>
 <html>
     
     <head>
         <title>Temperature, Vibrations &amp; Current live data</title>
         <script src="javascripts/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="javascripts/Chart.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="javascripts/dsp.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="javascripts/index.js" type="text/javascript" charset="utf-8"></script>
+        <script target="#myChart4" type="application/processing">
+            void setup() {
+                size(1024, 300);
+            }
+        
+        void draw() {
+            background(0);
+            
+            // Draw spectrum
+            stroke(255);
+            strokeWeight(1.5);
+            
+            for ( int i = 0; i < fft.spectrum.length - 1; i+=4 ) {
+                line(2*i/4, height - 10 - fft.spectrum[i] * 512, 2*i/4+1, height - 10 - fft.spectrum[i+1] * 512);
+            }
+        }
+        </script>
         <link href="stylesheets/style.css" rel="stylesheet" />
     </head>
     
@@ -12,6 +31,9 @@
         <canvas id="myChart" width="400" height="150"></canvas>
         <canvas id="myChart2" width="400" height="150"></canvas>
         <canvas id="myChart3" width="400" height="150"></canvas>
+        <button type="button" onclick="Transforms()">FFT of Temperature Dataset</button>
+        <div><canvas id="myChart4" width="200px" height="200px"></canvas></div>
     </body>
     
 </html>
+
